@@ -47,7 +47,7 @@ public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
                                             HttpServletResponse response,
                                             FilterChain chain,
                                             Authentication auth)
-            throws IOException, ServletException {
+            throws IOException {
 
         String token = JwtUtil.createJwtToken(auth.getName());
 
@@ -61,7 +61,7 @@ public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
     protected void unsuccessfulAuthentication(HttpServletRequest request,
                                               HttpServletResponse response,
                                               AuthenticationException failed)
-            throws IOException, ServletException {
+            throws IOException {
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
     }
 }

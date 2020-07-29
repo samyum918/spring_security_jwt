@@ -38,8 +38,7 @@ public class UsersAuthenticationProvider implements AuthenticationProvider {
             throw new ApiBadRequestException("Username or password incorrect");
         }
 
-        Authentication auth = new UsernamePasswordAuthenticationToken(username, password, new ArrayList<>());
-        return auth;
+        return new UsernamePasswordAuthenticationToken(username, password, new ArrayList<>());
     }
 
     @Override
